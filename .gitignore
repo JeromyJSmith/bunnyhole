@@ -4,7 +4,8 @@ node_modules
 .pnp.js
 
 # MCP
-mcp.json
+.mcp.json
+.cursor/mcp.json
 
 # Build outputs
 dist
@@ -81,3 +82,8 @@ temp
 mcp.json
 .env
 .env.*
+.env.bk
+.mcp.json
+.env
+.env.*
+.cursor/mcp.json
