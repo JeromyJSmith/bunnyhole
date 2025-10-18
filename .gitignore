@@ -77,3 +77,7 @@ temp
 /WARP.md
 /WARP.md.bak
 # END Ruler Generated Files
+.env.bk
+mcp.json
+.env
+.env.*
