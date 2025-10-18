@@ -3,12 +3,16 @@ node_modules
 .pnp
 .pnp.js
 
+# MCP
+mcp.json
+
 # Build outputs
 dist
 build
 *.tsbuildinfo
 
 # Environment variables
+.env.bk
 .env
 .env*.local
 
