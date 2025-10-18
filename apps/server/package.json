@@ -10,15 +10,26 @@
     "start": "bun run dist/index.js"
   },
   "dependencies": {
-    "hono": "catalog:",
-    "@trpc/server": "catalog:",
-    "@hono/trpc-server": "^0.4.0",
-    "better-auth": "catalog:",
-    "dotenv": "catalog:",
-    "zod": "catalog:",
+    "@anthropic-ai/sdk": "^0.67.0",
     "@bunnyhole/api": "workspace:*",
     "@bunnyhole/auth": "workspace:*",
-    "@bunnyhole/db": "workspace:*"
+    "@bunnyhole/db": "workspace:*",
+    "@google/generative-ai": "^0.24.1",
+    "@hono/node-ws": "^1.2.0",
+    "@hono/trpc-server": "^0.4.0",
+    "@trpc/server": "catalog:",
+    "ai": "^5.0.76",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "eventsource-parser": "^3.0.6",
+    "hono": "catalog:",
+    "livekit-server-sdk": "^2.14.0",
+    "nanoid": "^5.1.6",
+    "neo4j-driver": "^6.0.0",
+    "openai": "^6.5.0",
+    "sharp": "^0.34.4",
+    "ws": "^8.18.3",
+    "zod": "^4.1.12"
   },
   "trustedDependencies": [
     "supabase"
