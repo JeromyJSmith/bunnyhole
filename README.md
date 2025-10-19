@@ -1,83 +1,201 @@
-# bunnyhole
+# 🎬 Bunnyhole
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Hono, TRPC, and more.
+**Real-Time AI Video Streaming Platform**
 
-## Features
+A modern TypeScript monorepo built with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), combining Next.js, Hono, tRPC, and cutting-edge AI/video technologies.
 
-- **TypeScript** - For type safety and improved developer experience
-- **Next.js** - Full-stack React framework
-- **React Native** - Build mobile apps using React
-- **Expo** - Tools for React Native development
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **Hono** - Lightweight, performant server framework
+## 🚀 Quick Start
+
+For detailed setup instructions, see **[SETUP.md](./SETUP.md)**.
+
+```bash
+# Install dependencies
+make install
+
+# Start Docker services (PostgreSQL, Redis, Neo4j, Kafka)
+make docker-up
+
+# Set up environment variables
+cp apps/server/.env.example apps/server/.env
+cp apps/web/.env.example apps/web/.env
+
+# Push database schema
+make db-push
+
+# Start all development servers
+make dev
+```
+
+## ✨ Features
+
+### Core Stack
+- **TypeScript** - Full type safety across the stack
+- **Next.js 15** - React 19 with App Router
+- **React Native** - Cross-platform mobile with Expo
+- **Hono** - Ultra-fast edge-first backend
 - **tRPC** - End-to-end type-safe APIs
-- **Bun** - Runtime environment
-- **Drizzle** - TypeScript-first ORM
-- **PostgreSQL** - Database engine
-- **Authentication** - Better-Auth
-- **Husky** - Git hooks for code quality
-- **PWA** - Progressive Web App support
-- **Turborepo** - Optimized monorepo build system
+- **Bun** - Lightning-fast JavaScript runtime
+- **Turborepo** - Optimized monorepo builds
 
-## Getting Started
+### Real-Time & Streaming
+- **LiveKit** - Real-time video/audio streaming
+- **WebSockets** - Bidirectional communication
+- **Kafka** - Event streaming and messaging
 
-First, install the dependencies:
+### AI Integration
+- **OpenAI** - GPT-4, DALL-E, Whisper
+- **Anthropic** - Claude AI models
+- **Google AI** - Gemini models
+- **Vercel AI SDK** - Unified AI interface
 
-```bash
-bun install
-```
-## Database Setup
+### Database & Cache
+- **PostgreSQL** - Primary database (Drizzle ORM)
+- **Redis** - Caching and rate limiting
+- **Neo4j** - Graph database for relationships
+- **Supabase** - Database hosting & auth
 
-This project uses PostgreSQL with Drizzle ORM.
+### Workflow & Orchestration
+- **Inngest** - Durable workflow orchestration
+- **n8n** - Workflow automation (optional)
+- **Kestra** - Data orchestration (optional)
 
-1. Make sure you have a PostgreSQL database set up.
-2. Update your `apps/server/.env` file with your PostgreSQL connection details.
+### Developer Experience
+- **Biome** - Fast linting and formatting
+- **Ultracite** - AI-friendly code quality
+- **Docker Compose** - Local service orchestration
+- **Makefile** - Convenient CLI commands
+- **OpenSpec** - Spec-driven development
+- **Husky** - Git hooks for quality gates
 
-3. Apply the schema to your database:
-```bash
-bun db:push
-```
+## 🏗️ Architecture
 
-
-Then, run the development server:
-
-```bash
-bun dev
-```
-
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application.
-Use the Expo Go app to run the mobile application.
-The API is running at [http://localhost:3000](http://localhost:3000).
-
-
-
-
-
-
-
-## Project Structure
+### Monorepo Structure
 
 ```
 bunnyhole/
 ├── apps/
-│   ├── web/         # Frontend application (Next.js)
-│   ├── native/      # Mobile application (React Native, Expo)
-│   └── server/      # Backend API (Hono, TRPC)
+│   ├── web/         # Next.js frontend (port 3000)
+│   ├── server/      # Hono API backend (port 3001)
+│   └── native/      # React Native mobile app
 ├── packages/
-│   ├── api/         # API layer / business logic
-│   ├── auth/        # Authentication configuration & logic
-│   └── db/          # Database schema & queries
+│   ├── api/         # tRPC routers and procedures
+│   ├── auth/        # Better Auth configuration
+│   └── db/          # Drizzle ORM schemas
+├── docker-compose.yml
+├── Makefile
+└── SETUP.md
 ```
 
-## Available Scripts
+## 🛠️ Development
 
-- `bun dev`: Start all applications in development mode
-- `bun build`: Build all applications
-- `bun dev:web`: Start only the web application
-- `bun dev:server`: Start only the server
-- `bun check-types`: Check TypeScript types across all apps
-- `bun dev:native`: Start the React Native/Expo development server
-- `bun db:push`: Push schema changes to database
-- `bun db:studio`: Open database studio UI
-- `cd apps/web && bun generate-pwa-assets`: Generate PWA assets
+### Quick Commands
+
+```bash
+make help          # Show all available commands
+
+# Development
+make dev           # Start all apps
+make dev-web       # Web app only
+make dev-server    # API server only
+make dev-native    # Mobile app only
+
+# Docker Services
+make docker-up     # Start PostgreSQL, Redis, Neo4j, Kafka
+make docker-down   # Stop all services
+make docker-logs   # View service logs
+
+# Database
+make db-push       # Push schema changes
+make db-studio     # Open Drizzle Studio
+make db-generate   # Generate migrations
+make db-migrate    # Run migrations
+
+# Maintenance
+make clean         # Clean build artifacts
+make check         # Run linter
+```
+
+### Docker Services
+
+When you run `make docker-up`, the following services start:
+
+- **PostgreSQL** (5432) - Primary database
+- **Redis** (6379) - Cache & rate limiting
+- **Neo4j** (7474, 7687) - Graph database
+- **Kafka** (9092, 9094) - Event streaming
+
+Access Neo4j Browser at [http://localhost:7474](http://localhost:7474)
+
+## 📱 Applications
+
+### Web App (Next.js)
+- **URL**: [http://localhost:3000](http://localhost:3000)
+- **Framework**: Next.js 15 with React 19
+- **UI**: TailwindCSS 4 + shadcn/ui
+- **Features**: Real-time video, AI chat, dashboard
+
+### API Server (Hono)
+- **URL**: [http://localhost:3001](http://localhost:3001)
+- **Framework**: Hono with tRPC
+- **Features**: Authentication, video streaming, AI integration
+
+### Mobile App (React Native)
+- **Framework**: Expo with NativeWind
+- **Features**: Native video, offline support, push notifications
+
+
+
+
+
+
+
+## 🔑 Environment Variables
+
+Each app requires environment configuration. See `.env.example` files:
+
+- `apps/server/.env.example` - Backend API keys and database URLs
+- `apps/web/.env.example` - Frontend public keys
+- `apps/native/.env.example` - Mobile app configuration
+
+**Required Services:**
+- Supabase (database & auth)
+- LiveKit (video streaming)
+- Better Auth secret (generate with `openssl rand -base64 32`)
+
+**Optional Services:**
+- OpenAI, Anthropic, Google AI (AI features)
+- RunPod (GPU computing)
+- Inngest (workflows)
+
+## 🧪 Testing & Quality
+
+```bash
+bun run check        # Run Biome linter
+bun run check-types  # TypeScript type checking
+```
+
+## 📚 Documentation
+
+- **[Setup Guide](./SETUP.md)** - Complete installation instructions
+- **[Notion Workspace](https://www.notion.so/Real-Time-AI-Video-Streaming-Platform-290c487604f48152a6e3ecf8268697da)** - Project documentation
+- **[GitHub Repository](https://github.com/JeromyJSmith/bunnyhole)** - Source code
+
+## 🤝 Contributing
+
+1. Follow the code style enforced by Biome/Ultracite
+2. Use OpenSpec for feature proposals (`/openspec-proposal` in Cursor)
+3. Write type-safe code (strict TypeScript)
+4. Test locally with Docker services
+5. Run `make check` before committing
+
+## 📄 License
+
+[Your License Here]
+
+## 🙏 Acknowledgments
+
+Built with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack) and powered by modern open-source technologies.
+
+---
+
+**Need help?** Check [SETUP.md](./SETUP.md) or open an issue on GitHub.
